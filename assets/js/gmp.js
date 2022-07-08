@@ -1,10 +1,12 @@
 const mapsKey = "AIzaSyCdi64dltyurMzy_QJWr_kwBGOvZ1-ShK4"
-// The location of ecu
-const ecu = { lat: 35.605124, lng:  -77.365271 }
+
+// ECU General Information
 const ecu_info = {
   name: "East Carolina University", 
   loc: { lat: 35.605124, lng:  -77.365271 },
 }
+
+// ESDN Map Location Dictionary
 const esdn_map = {
     scitech: { 
       name: "East Carolina University - Science and Technology Bldg",
@@ -29,13 +31,16 @@ const esdn_map = {
     }
 };
 
+// ESDN Primary Color
+const esdn_color = "#9842f5";
+
 // Initialize and add the map
 function initMap() {
 
-  // The map, centered at ecu
+  // Map Definition
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 8,
-    center: ecu,
+    center: ecu_info.loc,
     zoomControl: true,
     mapTypeControl: false,
     scaleControl: true,
@@ -44,21 +49,26 @@ function initMap() {
     fullscreenControl: true,
   });
 
+  // Default InfoWindow for each Marker
   const infoWindow = new google.maps.InfoWindow({
     content: "",
     disableAutoPan: true,
   });
 
+  // Marker Array for Batch control
   var markers = [];
-  // Create markers.
+
+  // Marker creation for entire dictionary
   for (let point in esdn_map) {
     
+    // Define Marker 
     const marker = new google.maps.Marker({
         position: esdn_map[point].loc,
         icon: esdn_map[point].icon,
         map: map,
     });
 
+    // Define Mouseover Event
     marker.addListener("mouseover", () =>{
       const content =  '<strong><u>' + esdn_map[point].name + '</strong></u>' + '<br>Status: '+ esdn_map[point].status + '<br>Latitude: ' + esdn_map[point].loc.lat + '<br>Longitude: ' + esdn_map[point].loc.lng ;
       infoWindow.setContent(content);
@@ -66,6 +76,7 @@ function initMap() {
       window.setTimeout(function() {infoWindow.close(map, marker);},5000);
     });
 
+    // Define Click Event
     marker.addListener('click',function() {
       var pos = map.getZoom();
       map.setZoom(12);
@@ -73,20 +84,24 @@ function initMap() {
       window.setTimeout(function() {map.setZoom(pos);},5000);
     });
 
+    // Define Coverage Circle
     const coverage_circle = new google.maps.Circle({
-        strokeColor: "#9842f5",
+        strokeColor: esdn_color,
         strokeOpacity: 0.8,
         strokeWeight: 2,
-        fillColor: "#9842f5",
+        fillColor: esdn_color,
         fillOpacity: 0.15,
         map,
         center: esdn_map[point].loc,
         radius: esdn_map[point].coverage_area
     });
+    // Add Marker to Markers array
     markers.push(marker);
   };
   
+  // Batch Marker manager
   new MarkerClusterer({markers,map})
 }
 
+// Display Map
 window.initMap = initMap;
