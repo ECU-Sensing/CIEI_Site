@@ -16,25 +16,26 @@ const ecu_info = {
 const states = [
   {
     text: "Planned",
-    icon: "assets/icons/google_cell_tower.svg",
+    icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
     color: "#FED01A",
   },
   {
     text: "Planned",
-    icon: "assets/icons/google_cell_tower.svg",
+    icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
     color: "#0096FD"
   },
   {
     text: "Active",
-    icon: "assets/icons/google_cell_tower.svg",
+    icon: "http://maps.google.com/mapfiles/ms/icons/purple-dot.png",
     color: esdn_color,
   },
   {
     text: "Archived",
-    icon: "assets/icons/google_cell_tower.svg",
+    icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
     color: "FD0000",
   }
 ]
+
 
 // ESDN Map Location Dictionary
 const esdn_map = {
@@ -160,7 +161,7 @@ function initMap() {
     // Define Marker
     const marker = new google.maps.Marker({
         position: esdn_map[point].loc,
-        //icon: states[esdn_map[point].status].icon,
+        icon: states[esdn_map[point].status].icon,
         map: map,
     });
     
