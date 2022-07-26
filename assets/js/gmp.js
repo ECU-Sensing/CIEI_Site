@@ -16,22 +16,22 @@ const ecu_info = {
 const states = [
   {
     text: "Planned",
-    icon: "assets/icons/icon_tower_alt_planned.png",
+    icon: "assets/icons/google_cell_tower.svg",
     color: "#FED01A",
   },
   {
     text: "Planned",
-    icon: "assets/icons/icon_tower_alt_staged.png",
+    icon: "assets/icons/google_cell_tower.svg",
     color: "#0096FD"
   },
   {
     text: "Active",
-    icon: "assets/icons/icon_tower_alt_active.png",
+    icon: "assets/icons/google_cell_tower.svg",
     color: esdn_color,
   },
   {
     text: "Archived",
-    icon: "assets/icons/icon_tower_alt_archived.png",
+    icon: "assets/icons/google_cell_tower.svg",
     color: "FD0000",
   }
 ]
@@ -41,78 +41,93 @@ const esdn_map = {
     scitech: { 
       name: "East Carolina University - Science and Technology Bldg",
       loc:  { lat: 35.605124, lng:  -77.365271 },
-      coverage_area: 7500,
+      coverage_area: 8046.72,
       status: 2,
     },
     brody: {
       name: "East Carolina University - Brody School of Medicine",
       loc: { lat: 35.609626, lng:  -77.402157 },
-      coverage_area: 7500,
-      status: 1,
+      coverage_area: 8046.72,
+      status: 2,
     },
     seagull: {
       name: "YMCA - Camp Seagull & Camp Seafarer",
       loc:  { lat: 34.994108, lng: -76.854844 },
-      coverage_area: 15000,
+      coverage_area: 8046.72,
       status: 2,
     },
     mattamuskeet: {
       name: "Lake Mattamuskeet",
       loc:  { lat: 35.451608, lng: -76.176196 },
-      coverage_area: 15000,
+      coverage_area: 8046.72,
       status: 1,
     },
     csi: {
       name: "East Carolina University - Costal Studies Institute",
       loc:  { lat: 35.873228, lng: -75.661204 },
-      coverage_area: 15000,
+      coverage_area: 8046.72,
       status: 1,
     },
     wrc: {
       name: "East Carolina University - West Research Campus",
       loc:  { lat: 35.632030, lng: -77.493024 },
-      coverage_area: 15000,
+      coverage_area: 8046.72,
       status: 1,
     },
     cope1: {
-      name: "COPE Project Footprint - Greenville",
+      name: "Greenville Water Treatment",
       loc:  { lat: 35.609643, lng: -77.305522 },
-      coverage_area: 15000,
+      coverage_area: 8046.72,
       status: 1,
     },
     cope2: {
-      name: "COPE Project Footprint - Grimesland",
+      name: "Grimesland",
       loc:  { lat: 35.563930, lng: -77.180505 },
-      coverage_area: 15000,
+      coverage_area: 8046.72,
       status: 1,
     },
     cope3: {
-      name: "COPE Project Footprint - Goose Creek State Park",
+      name: "Goose Creek State Park",
       loc:  { lat: 35.473107, lng: -76.907259 },
-      coverage_area: 15000,
+      coverage_area: 8046.72,
       status: 1,
     },
     cope4: {
-      name: "COPE Project Footprint - Little Washington",
+      name: "Little Washington",
       loc:  { lat: 35.547725, lng: -77.046222 },
-      coverage_area: 15000,
+      coverage_area: 8046.72,
       status: 1,
     },
     cope5: {
-      name: "COPE Project Footprint - Bath",
+      name: "Bath",
       loc:  { lat: 35.428098, lng: -76.740445 },
-      coverage_area: 15000,
+      coverage_area: 8046.72,
       status: 1,
     },
     cope6: {
-      name: "COPE Project Footprint - Swan Quarter",
+      name: "Swan Quarter",
       loc:  { lat: 35.405544, lng: -76.329505},
-      coverage_area: 15000,
+      coverage_area: 8046.72,
       status: 1,
     },
 
 };
 
+function placeMarkerAndPanTo(latLng, map) {
+  // Default InfoWindow for each Marker
+  var info = new google.maps.InfoWindow({
+    content: "Location:" + latLng,
+    disableAutoPan: true,
+  });
+ 
+  var marker = new google.maps.Marker({
+    position: latLng,
+    map: map,
+  });
+
+  map.panTo(latLng);
+  info.open(map, marker );
+}
 
 
 // Initialize and add the map
@@ -142,19 +157,19 @@ function initMap() {
   // Marker creation for entire dictionary
   for (let point in esdn_map) {
     
-    // Define Marker 
+    // Define Marker
     const marker = new google.maps.Marker({
         position: esdn_map[point].loc,
-        icon: states[esdn_map[point].status].icon,
+        //icon: states[esdn_map[point].status].icon,
         map: map,
     });
-
+    
     // Define Mouseover Event
     marker.addListener("mouseover", () =>{
       const content =  '<strong><u>' + esdn_map[point].name + '</strong></u>' + '<br>Status: '+ states[esdn_map[point].status].text + '<br>Latitude: ' + esdn_map[point].loc.lat + '<br>Longitude: ' + esdn_map[point].loc.lng ;
       infoWindow.setContent(content);
       infoWindow.open(map, marker);
-      window.setTimeout(function() {infoWindow.close(map, marker);},5000);
+      window.setTimeout(function() {infoWindow.close(map, marker);},10000);
     });
 
     // Define Click Event
@@ -162,7 +177,7 @@ function initMap() {
       var pos = map.getZoom();
       map.setZoom(12);
       map.setCenter(marker.getPosition());
-      window.setTimeout(function() {map.setZoom(pos);},5000);
+      window.setTimeout(function() {map.setZoom(pos);},10000);
     });
 
     // Define Coverage Circle
@@ -181,7 +196,15 @@ function initMap() {
       const content =  '<strong><u>' + esdn_map[point].name + '</strong></u>' + '<br>Status: '+ states[esdn_map[point].status].text + '<br>Latitude: ' + esdn_map[point].loc.lat + '<br>Longitude: ' + esdn_map[point].loc.lng ;
       infoWindow.setContent(content);
       infoWindow.open(map, marker);
-      window.setTimeout(function() {infoWindow.close(map, marker);},5000);
+      window.setTimeout(function() {infoWindow.close(map, marker);},10000);
+    });
+
+    // Define Click Event
+    coverage_circle.addListener('click',function() {
+      var pos = map.getZoom();
+      map.setZoom(12);
+      map.setCenter(marker.getPosition());
+      window.setTimeout(function() {map.setZoom(pos);},10000);
     });
 
     // Add Marker to Markers array
@@ -191,6 +214,7 @@ function initMap() {
   // Batch Marker manager
   new MarkerClusterer({markers,map})
 }
+
 
 // Display Map
 window.initMap = initMap;
