@@ -55,6 +55,91 @@
 							<div class = "inner" style="margin-bottom: 15px;">
 								<h2>Innovation Lab</h2>
 								<p>Manages the IOT innovation lab where researchers, educators and partners can build and test IOT end devices and solutions</p>
+								<a type="button" class="button primary icon solid fa-pen" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Apply Now </a>
+								  
+								<!-- Modal -->
+								<div class="modal fade modal-dialog modal-dialog-scrollable" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+									<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+										<h5 class="modal-title" id="staticBackdropLabel">Apply Now</h5>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<div class="modal-body">
+											<form>
+												<div class="form-group row">
+												  <label for="name" class="col-3 col-form-label">Name</label> 
+												  <div class="col-9">
+													<input id="name" name="name" placeholder="John Doe" type="text" required="required" class="form-control">
+												  </div>
+												</div>
+												<div class="form-group row">
+												  <label for="email" class="col-3 col-form-label">Email</label> 
+												  <div class="col-9">
+													<input id="email" name="email" placeholder="john@doe.com" type="text" class="form-control">
+												  </div>
+												</div>
+												<div class="form-group row">
+												  <label for="project_name" class="col-3 col-form-label">Project Name</label> 
+												  <div class="col-9">
+													<input id="project_name" name="project_name" type="text" class="form-control">
+												  </div>
+												</div>
+												<div class="form-group row">
+												  <label class="col-3">Funded</label> 
+												  <div class="col-9">
+													<div class="custom-control custom-checkbox custom-control-inline">
+													  <input name="funding_checkbox" id="funding_checkbox_0" type="checkbox" class="custom-control-input" value="yes"> 
+													  <label for="funding_checkbox_0" class="custom-control-label">Yes</label>
+													</div>
+												  </div>
+												</div>
+												<div class="form-group row">
+												  <label for="funding_text" class="col-3 col-form-label">If so, please provide funding information</label> 
+												  <div class="col-9">
+													<input id="funding_text" name="funding_text" type="text" class="form-control">
+												  </div>
+												</div>
+												<div class="form-group row">
+												  <label for="work_text" class="col-3 col-form-label">What would you like to work on together with CIEI?</label> 
+												  <div class="col-9">
+													<textarea id="work_text" name="work_text" cols="40" rows="4" class="form-control" aria-describedby="work_textHelpBlock"></textarea> 
+													<span id="work_textHelpBlock" class="form-text text-muted">1-2 sentence min.</span>
+												  </div>
+												</div>
+												<div class="form-group row">
+												  <label for="support_text" class="col-3 col-form-label">What support do you need?</label> 
+												  <div class="col-9">
+													<textarea id="support_text" name="support_text" cols="40" rows="3" class="form-control" aria-describedby="support_textHelpBlock"></textarea> 
+													<span id="support_textHelpBlock" class="form-text text-muted">1 sentence min.</span>
+												  </div>
+												</div>
+												<div class="form-group row">
+												  <label for="timeline_text" class="col-3 col-form-label">What is the timeline for this work?</label> 
+												  <div class="col-9">
+													<textarea id="timeline_text" name="timeline_text" cols="40" rows="3" class="form-control"></textarea>
+												  </div>
+												</div>
+												<div class="form-group row">
+												  <label for="additional_text" class="col-3 col-form-label">Additional Information</label> 
+												  <div class="col-9">
+													<textarea id="additional_text" name="additional_text" cols="40" rows="5" class="form-control"></textarea>
+												  </div>
+												</div> 
+												<div class="form-group row">
+												  <div class="offset-3 col-9">
+													<button name="submit" type="submit" class="btn btn-primary">Submit</button>
+												  </div>
+												</div>
+											  </form>			
+										</div>
+										<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-primary">Understood</button>
+										</div>
+									</div>
+									</div>
+								</div>
 							</div>
 							<div class = "inner" style="margin-bottom: 15px;">
 								<h2>Training</h2>
