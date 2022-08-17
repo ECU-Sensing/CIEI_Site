@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-analytics.js";
+import { collection, addDoc, getFirestore } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js"; 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,4 +20,67 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const analytics = getAnalytics(app); 
+const db = getFirestore(app);
+
+
+async function postDocument(name, email, project_name, funding_checkbox,work_text, support_text,timeline_text, additional_text){
+  try {
+    const docRef = await addDoc(collection(db, "lab_apply"), {
+      name:  name,
+      email: email,
+      project_name: project_name,
+      funding_checkbox: funding_checkbox,
+      work_text: work_text,
+      support_text: support_text,
+      timeline_text: timeline_text,
+      additional_text: additional_text
+    });
+    //console.log("Document written with ID: ", docRef.id);
+  } catch (e){
+    console.error('Error Adding Document: ', e);
+  }
+}
+
+// Update Information in Innovation Lab Firestore
+function getFieldData(){
+    var name = document.getElementById('apply_modal_name').value;
+    var email = document.getElementById('apply_modal_email').value;
+    var project_name = document.getElementById('apply_modal_project_name').value;
+    var funding_checkbox = document.getElementById('apply_modal_funding_checkbox').checked;
+    var work_text = document.getElementById('apply_modal_work_text').value;
+    var support_text = document.getElementById('apply_modal_support_text').value;
+    var timeline_text = document.getElementById('apply_modal_timeline_text').value;
+    var additional_text = document.getElementById('apply_modal_additional_text').value;
+
+    /*console.log(name);
+    console.log(email);
+    console.log(project_name);
+    console.log(funding_checkbox);
+    console.log(work_text);
+    console.log(support_text);
+    console.log(timeline_text);
+    console.log(additional_text);*/
+
+    // Add a new document with a generated id.
+    if (name != "" && email != "" && project_name != "" && work_text != "" && support_text != "" && timeline_text != ""){
+      try{
+        postDocument(name, email, project_name, funding_checkbox,work_text, support_text,timeline_text, additional_text);
+      } catch (e) {
+        console.error(e);
+      }
+      document.getElementById('applyModalCancel').click()
+      $('#apply_submitted_modal').modal('show');
+    }
+    else {
+      document.getElementById('apply_modal_error_text').style.display = "block";
+    }
+
+}
+
+document.getElementById('applyModalSubmit').addEventListener('click', event => {
+  console.log("Submit Clicked");
+  getFieldData();
+})
+
+
