@@ -63,10 +63,17 @@ function getFieldData(){
     console.log(additional_text);*/
 
     // Add a new document with a generated id.
-    try{
-      postDocument(name, email, project_name, funding_checkbox,work_text, support_text,timeline_text, additional_text);
-    } catch (e) {
-      console.error(e);
+    if (name != "" && email != "" && project_name != "" && work_text != "" && support_text != "" && timeline_text != ""){
+      try{
+        postDocument(name, email, project_name, funding_checkbox,work_text, support_text,timeline_text, additional_text);
+      } catch (e) {
+        console.error(e);
+      }
+      document.getElementById('applyModalCancel').click()
+      $('#apply_submitted_modal').modal('show');
+    }
+    else {
+      document.getElementById('apply_modal_error_text').style.display = "block";
     }
 
 }

@@ -373,35 +373,6 @@
 								<li><a href="mailto:sawyeco21@ecu.edu" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
 							</ul>
 							<p>&copy; CIEI 2022</a>.</p>
-							<!-- Button to Open the Modal -->
-							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-								Open modal
-							</button>
-							
-							<!-- The Modal -->
-							<div class="modal" id="myModal">
-								<div class="modal-dialog">
-								<div class="modal-content">
-							
-									<!-- Modal Header -->
-									<div class="modal-header">
-									<h4 class="modal-title">Modal Heading</h4>
-									<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-									</div>
-							
-									<!-- Modal body -->
-									<div class="modal-body">
-									Modal body..
-									</div>
-							
-									<!-- Modal footer -->
-									<div class="modal-footer">
-									<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-									</div>
-							
-								</div>
-								</div>
-							</div>
 						</div>
 					</footer>
 
@@ -424,7 +395,23 @@
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdi64dltyurMzy_QJWr_kwBGOvZ1-ShK4&callback=initMap&v=weekly"
 			defer
 		  ></script>
-
+				<div class="modal modal-md fade" id="apply_submitted_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="exampleModalLabel">Successfully Submitted!</h4>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<p>Thank you for contacting us! A team member will reach out shortly.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					</div>
+					</div>
+				</div>
+				</div>
+			</div>
 			<!-- Modal -->
 			<div class="modal modal-lg fade" id="applyModal" tabindex="-1" aria-labelledby="applyModalLabel" aria-hidden="true" > 
 				<div class="modal-dialog">
@@ -438,19 +425,24 @@
 							<div class="mb-3">
 							  <label for="name" class="col-3 col-form-label">Name</label> 
 							  <div class="col-9">
-								<input id="apply_modal_name" name="name" placeholder="John Doe" type="text" required="required" class="form-control">
+								<input id="apply_modal_name" name="name" placeholder="John Doe" type="text" class="form-control" required>
+								<span id="support_textHelpBlock" class="form-text text-muted">Required</span>
 							  </div>
 							</div>
 							<div class="mb-3">
 							  <label for="email" class="col-3 col-form-label">Email</label> 
 							  <div class="col-9">
-								<input id="apply_modal_email" name="email" placeholder="john@doe.com" type="text" class="form-control">
+								<input id="apply_modal_email" name="email" placeholder="john@doe.com" type="text" class="form-control" required>
+								<span id="support_textHelpBlock" class="form-text text-muted">Required</span>
+
 							  </div>
 							</div>
 							<div class="mb-3">
 							  <label for="project_name" class="col-3 col-form-label">Project Name</label> 
 							  <div class="col-9">
-								<input id="apply_modal_project_name" name="project_name" type="text" class="form-control">
+								<input id="apply_modal_project_name" name="project_name" type="text" class="form-control" required>
+								<span id="support_textHelpBlock" class="form-text text-muted">Required</span>
+
 							  </div>
 							</div>
 							<div class="mb-3">
@@ -471,37 +463,44 @@
 							<div class="mb-3">
 							  <label for="work_text" class="col-3 col-form-label">What would you like to work on together with CIEI?</label> 
 							  <div class="col-9">
-								<textarea id="apply_modal_work_text" name="work_text" cols="40" rows="4" class="form-control" aria-describedby="work_textHelpBlock"></textarea> 
-								<span id="work_textHelpBlock" class="form-text text-muted">1-2 sentence min.</span>
+								<textarea id="apply_modal_work_text" name="work_text" cols="40" rows="4" class="form-control" aria-describedby="work_textHelpBlock" required></textarea> 
+								<span id="work_textHelpBlock" class="form-text text-muted">Required. Please be brief (1-2 sentences).</span>
 							  </div>
 							</div>
 							<div class="mb-3">
 							  <label for="support_text" class="col-3 col-form-label">What support do you need?</label> 
 							  <div class="col-9">
-								<textarea id="apply_modal_support_text" name="support_text" cols="40" rows="3" class="form-control" aria-describedby="support_textHelpBlock"></textarea> 
-								<span id="support_textHelpBlock" class="form-text text-muted">1 sentence min.</span>
+								<textarea id="apply_modal_support_text" name="support_text" cols="40" rows="3" class="form-control" aria-describedby="support_textHelpBlock" required></textarea> 
+								<span id="support_textHelpBlock" class="form-text text-muted">Required. Please be brief (1-2 sentences).</span>
 							  </div>
 							</div>
 							<div class="mb-3">
 							  <label for="timeline_text" class="col-3 col-form-label">What is the timeline for this work?</label> 
 							  <div class="col-9">
-								<textarea id="apply_modal_timeline_text" name="timeline_text" cols="40" rows="3" class="form-control"></textarea>
+								<textarea id="apply_modal_timeline_text" name="timeline_text" cols="40" rows="3" class="form-control" required></textarea>
+								<span id="support_textHelpBlock" class="form-text text-muted">Required. Please be brief (1-2 sentences).</span>
 							  </div>
 							</div>
 							<div class="mb-3">
 							  <label for="additional_text" class="col-3 col-form-label">Additional Information</label> 
 							  <div class="col-9">
 								<textarea id="apply_modal_additional_text" name="additional_text" cols="40" rows="5" class="form-control"></textarea>
+								<span id="support_textHelpBlock" class="form-text text-muted"></span>
 							  </div>
 							</div> 
 						  </form>
+						  <div id="apply_modal_error_text" style="display:none;">
+							<p style="color:red"> Please verify every required field has been completed.</p>
+						  </div>
 					</div>
 					<div class="modal-footer">
-					<button type="button" class="btn btn-secondary button secondary" data-bs-dismiss="modal">Close</button>
+						
+					<button id="applyModalCancel" type="button" class="btn btn-secondary button secondary" data-bs-dismiss="modal">Close</button>
 					<button id="applyModalSubmit" name="submit" type="submit" class="btn btn-primary button primary">Submit</button>
 					</div>
 				</div>
 				</div>
 			</div>
+			
 	</body>
 </html>
