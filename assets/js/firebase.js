@@ -23,6 +23,27 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app); 
 const db = getFirestore(app);
 
+async function sendEmail(custName, custEmail, custProject, custTimeline){
+  const emailTemplate = {
+    to: ['sawyerco21@ecu.edu'],
+    message: {
+      subject: 'Hello from CIEI!',
+      text: 'There was a new application submitted on CIEI Labs! \n\n Give a warm welcome to ' + custName + ' (' + custEmail + ') Project:' + custProject + ' Timeline: ' + custTimeline,
+      html: 'This is the <code>HTML</code> section of the email body.',
+    }
+  }
+
+  try {
+    const docRef = await addDoc(collection(db, "mail"), emailTemplate);
+    //console.log("Document written with ID: ", docRef.id);
+  } catch (e){
+    console.error('Error Adding Document: ', e);
+  }
+
+
+  
+}
+
 
 async function postDocument(name, email, project_name, funding_checkbox,work_text, support_text,timeline_text, additional_text){
   try {
@@ -36,6 +57,7 @@ async function postDocument(name, email, project_name, funding_checkbox,work_tex
       timeline_text: timeline_text,
       additional_text: additional_text
     });
+    sendEmail(name, email, project_name, timeline_text);
     //console.log("Document written with ID: ", docRef.id);
   } catch (e){
     console.error('Error Adding Document: ', e);
