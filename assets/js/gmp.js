@@ -94,10 +94,10 @@ const esdn_map = {
       status: 1,
     },
     cope4: {
-      name: "Little Washington",
-      loc:  { lat: 35.547725, lng: -77.046222 },
+      name: "Washington",
+      loc:  { lat: 35.540211574992895, lng: -77.05438510962685},
       coverage_area: 8046.72,
-      status: 1,
+      status: 2,
     },
     cope5: {
       name: "Bath",
