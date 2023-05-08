@@ -69,6 +69,12 @@ const esdn_map = {
       coverage_area: 23335.49,
       status: 2,
     },
+    dpf: {
+      name: "Middle Creek Farm",
+      loc:  { lat: 35.474881, lng: -76.016264 },
+      coverage_area: 18153.4,
+      status: 2,
+    },
     wrc: {
       name: "East Carolina University - West Research Campus",
       loc:  { lat: 35.632030, lng: -77.493024 },
