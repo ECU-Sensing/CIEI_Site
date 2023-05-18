@@ -58,9 +58,9 @@ const esdn_map = {
       status: 2,
     },
     mattamuskeet: {
-      name: "Lake Mattamuskeet",
+      name: "Lake Mattamuskeet Wildlife Refuge",
       loc:  { lat: 35.451608, lng: -76.176196 },
-      coverage_area: 8046.72,
+      coverage_area: 18153.4,
       status: 1,
     },
     csi: {
@@ -117,6 +117,24 @@ const esdn_map = {
       coverage_area: 8046.72,
       status: 1,
     },
+    mm2: {
+      name: "Lake Mattamuskeet",
+      loc:  { lat: 35.56449275287248, lng: -76.10432610023427},
+      coverage_area:  18153.4,
+      status: 1,
+    },
+    pocosin: {
+      name: "Pocosin Lakes National Wildlife Refuge",
+      loc: { lat:35.914758, lng: -76.254408},
+      coverage_area:  8046.72,
+      status: 1,
+    },
+    morehead: { 
+      name: "Morehead City",
+      loc: { lat:34.72079924924847,lng:-76.69487818124077},
+      coverage_area:   23335.49,
+      status: 1,
+    }
 
 };
 
