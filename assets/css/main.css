@@ -8841,3 +8841,63 @@ input, select, textarea {
 	cursor: pointer;
 	z-index: 3;
 }
+
+.custom-section {
+	display: grid;
+	justify-items: center;
+	gap: 35px;
+	width: auto;
+	margin: 20px auto;
+	max-width: 1200px;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  
+  .custom-div {
+	color: #8518BA;
+	border: 2px solid #8518BA;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: #8518BA;
+	text-align: center;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	border-radius: 25px;
+  }
+
+  .impact-content {
+	margin-top: 20px;
+	margin-bottom: 6px;
+	margin-left: 25px;
+	margin-right: 25px;
+
+  }
+  
+  .number, .title {
+	color: #8518BA;
+	font-size: 40px;
+	font-weight: bold;
+  }
+  
+  @media screen and (max-width: 600px) {
+	.custom-section {
+	  grid-template-columns: 1fr;
+	}
+  }
+  
+  @media screen and (min-width: 600px) and (max-width: 1200px) {
+	.custom-section {
+	  grid-template-columns: repeat(2, 1fr); /* 2 columns between 600px and 1200px */
+	}
+  }
+  
+  @media screen and (min-width: 1201px) {
+	.custom-section {
+	  grid-template-columns: repeat(5, 1fr); /* 5 columns for screens larger than 1200px */
+	}
+  }
+  
+  /* ... rest of your CSS ... */
+  
