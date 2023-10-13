@@ -61,7 +61,7 @@ const esdn_map = {
       name: "Lake Mattamuskeet Wildlife Refuge",
       loc:  { lat: 35.451608, lng: -76.176196 },
       coverage_area: 18153.4,
-      status: 1,
+      status: 2,
     },
     csi: {
       name: "East Carolina University - Costal Studies Institute",
