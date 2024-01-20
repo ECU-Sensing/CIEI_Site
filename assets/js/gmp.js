@@ -134,8 +134,13 @@ const esdn_map = {
       loc: { lat:34.72079924924847,lng:-76.69487818124077},
       coverage_area:   23335.49,
       status: 1,
-    }
-
+    },
+    marc: {
+      name: "Marine Aquaculture Research Center",
+      loc:  { lat: 34.73861571905046, lng:-76.53010316847178},
+      coverage_area: 23335.49,
+      status: 2,
+    },
 };
 
 function placeMarkerAndPanTo(latLng, map) {
