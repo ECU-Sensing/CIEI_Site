@@ -81,6 +81,7 @@ const esdn_map = {
       coverage_area: 8046.72,
       status: 1,
     },
+    /*
     cope1: {
       name: "Greenville Water Treatment",
       loc:  { lat: 35.609643, lng: -77.305522 },
@@ -92,25 +93,26 @@ const esdn_map = {
       loc:  { lat: 35.563930, lng: -77.180505 },
       coverage_area: 8046.72,
       status: 1,
-    },
+    },*/
+    /*
     cope3: {
       name: "Goose Creek State Park",
       loc:  { lat: 35.473107, lng: -76.907259 },
       coverage_area: 8046.72,
       status: 1,
-    },
+    },*/
     cope4: {
       name: "Washington",
       loc:  { lat: 35.540211574992895, lng: -77.05438510962685},
       coverage_area: 8046.72,
       status: 2,
     },
-    cope5: {
+    /*cope5: {
       name: "Bath",
       loc:  { lat: 35.428098, lng: -76.740445 },
       coverage_area: 8046.72,
       status: 1,
-    },
+    },*/
     cope6: {
       name: "Swan Quarter",
       loc:  { lat: 35.405544, lng: -76.329505},
@@ -139,6 +141,18 @@ const esdn_map = {
       name: "Marine Aquaculture Research Center",
       loc:  { lat: 34.73861571905046, lng:-76.53010316847178},
       coverage_area: 23335.49,
+      status: 2,
+    },
+    war: {
+      name: "Winterville Army Reserve",
+      loc: {lat: 35.515881244567545, lng:-77.40756026151278},
+      coverage_area: 8046.72,
+      status: 2,
+    },
+    catfish: {
+      name: "Carolina Classics Catfish",
+      loc: {lat: 35.44214779822541, lng: -77.3228608625474},
+      coverage_area: 8046.72,
       status: 2,
     },
 };
