@@ -107,12 +107,12 @@ const esdn_map = {
       coverage_area: 8046.72,
       status: 2,
     },
-    /*cope5: {
-      name: "Bath",
-      loc:  { lat: 35.428098, lng: -76.740445 },
+    wilson: {
+      name: "Wilson USDA",
+      loc:  { lat: 35.68908758306512, lng: -77.88577495558931 },
       coverage_area: 8046.72,
       status: 1,
-    },*/
+    },
     cope6: {
       name: "Swan Quarter",
       loc:  { lat: 35.405544, lng: -76.329505},
